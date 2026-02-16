@@ -1,32 +1,66 @@
-const searchBtn = document.getElementById("searchBtn");
-const cityInput = document.getElementById("cityInput");
+document.addEventListener("DOMContentLoaded", function () {
 
-searchBtn.addEventListener("click", getWeather);
+  const searchInput = document.getElementById("cityInput");
+  const searchBtn = document.getElementById("searchBtn");
 
-async function getWeather() {
-  const city = cityInput.value;
+  //Set date automatically
+const today = new Date();
+const options = { 
+  weekday: "long", 
+  year: "numeric", 
+  month: "short", 
+  day: "numeric" 
+};
 
-  // 1️⃣ Get coordinates
-  const geoResponse = await fetch(
-    `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
-  );
-  const geoData = await geoResponse.json();
+  document.getElementById("date").textContent =
+  today.toLocaleDateString("en-US", options);
 
-  const lat = geoData.results[0].latitude;
-  const lon = geoData.results[0].longitude;
 
-  // 2️⃣ Get weather
-  const weatherResponse = await fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
-  );
-  const weatherData = await weatherResponse.json();
+  console.log("JS loaded");
+  console.log(searchInput);
+  console.log(searchBtn);
 
-  console.log(weatherData);
+  searchBtn.addEventListener("click", async function () {
+    
+    const city = searchInput.value.trim();
+    console.log("Searching for:", city);
 
-  // 3️⃣ Display on screen
-  document.getElementById("cityName").textContent = city;
-  document.getElementById("temperature").textContent =
-    weatherData.current_weather.temperature + "°C";
-  document.getElementById("description").textContent =
-    "Wind Speed: " + weatherData.current_weather.windspeed + " km/h";
-}
+    if (!city) return;
+
+    try {
+      //Get coordinates
+      const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`;
+      const geoResponse = await fetch(geoUrl);
+      const geoData = await geoResponse.json();
+
+      if (!geoData.results) {
+        alert("City not found");
+        return;
+      }
+
+      const { latitude, longitude } = geoData.results[0];
+
+      //Get weather
+      const weatherUrl =
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto`;
+
+      const weatherResponse = await fetch(weatherUrl);
+      const weatherData = await weatherResponse.json();
+
+      const temperature = weatherData.current_weather.temperature;
+      const weatherCode = weatherData.current_weather.weathercode;
+
+      document.getElementById("temp").textContent = temperature + "°";
+
+      document.getElementById("cityName").textContent =
+      geoData.results[0].name + ", " + geoData.results[0].country;
+
+
+      console.log("Weather data:", weatherData);
+
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  });
+
+});
