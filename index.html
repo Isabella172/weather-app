@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500;600;700&family=Bricolage+Grotesque:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="app">
+    <header class="navbar">
+      <div class="logo">
+  <img src="assets/logo.svg" alt="Weather Now Logo" class="logo-img">
+</div>
+
+      <button class="unit-toggle">
+  Units
+  <img src="assets/icon-dropdown.svg" alt="">
+</button>
+
+    </header>
+
+    <section class="hero">
+      <h1>How’s the sky looking today?</h1>
+      <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Search for a place...">
+        <button id="searchBtn">Search</button>
+      </div>
+    </section>
+
+   <div class="main-content">
+
+  <!-- LEFT SIDE -->
+  <div class="left">
+
+    <!-- Current Weather Card -->
+    <div class="weather-card">
+      <div class="weather-info">
+        <h2 id="cityName">Berlin, Germany</h2>
+        <p id="date">Tuesday, Aug 5, 2025</p>
+      </div>
+
+      <div class="weather-main">
+        <div class="weather-icon">☀</div>
+        <div class="temperature">
+          <span id="temp">20°</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="metrics">
+      <div class="metric-card">
+        <p>Feels Like</p>
+        <h3>18°</h3>
+      </div>
+      <div class="metric-card">
+        <p>Humidity</p>
+        <h3>46%</h3>
+      </div>
+      <div class="metric-card">
+        <p>Wind</p>
+        <h3>14 km/h</h3>
+      </div>
+      <div class="metric-card">
+        <p>Precipitation</p>
+        <h3>0 mm</h3>
+      </div>
+    </div>
+
+    <!-- Daily Forecast -->
+    <div class="daily-forecast">
+      <h3>Daily forecast</h3>
+      <div class="daily-cards">
+        <div class="day-card">
+          <p>Tue</p>
+          <img src="assets/icon-rain.webp" alt="Rain" class="weather-icon">
+          <p>20°  14°</p>
+        </div>
+        <div class="day-card">
+          <p>Wed</p>
+          <img src="assets/icon-rain.webp" alt="Rain" class="weather-icon">
+          <p>21°  15°</p>
+        </div>
+        <div class="day-card">
+          <p>Thu</p>
+          <img src="assets/icon-sunny.webp" alt="sunny" class="weather-icon">
+          <p>24°  14°</p>
+        </div>
+        <div class="day-card">
+          <p>Fri</p>
+          <img src="assets/icon-partly-cloudy.webp" alt="cloudy" class="weather-icon">
+          <p>25°  13°</p>
+        </div>
+        <div class="day-card">
+          <p>Sat</p>
+          <img src="assets/icon-storm.webp" alt="storm" class="weather-icon">
+          <p>21°  15°</p>
+        </div>
+        <div class="day-card">
+          <p>Sun</p>
+          <img src="assets/icon-snow.webp" alt="snow" class="weather-icon">
+          <p>25°  16°</p>
+        </div>
+        <div class="day-card">
+          <p>Mon</p>
+          <img src="assets/icon-fog.webp" alt="fog" class="weather-icon">
+          <p>24°  15°</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right">
+    <div class="hourly-header">
+      <h3>Hourly forecast</h3>
+      <div class="custom-select">
+  <select>
+    <option>Tuesday</option>
+  </select>
+  <img src="assets/icon-dropdown.svg" alt="Dropdown">
+</div>
+
+    </div>
+
+    <div class="hourly-list">
+       <div class="hour-card">
+    <img src="assets/icon-overcast.webp" alt="Rain" class="hour-icon">
+    <p class="hour-time">3 PM</p>
+    <span class="hour-temp">20°</span>
+  </div>
+      
+  <div class="hour-card">
+    <img src="assets/icon-partly-cloudy.webp" alt="Cloudy" class="hour-icon">
+    <p class="hour-time">4 PM</p>
+    <span class="hour-temp">20°</span>
+  </div>
+      
+  <div class="hour-card">
+    <img src="assets/icon-sunny.webp" alt="Sunny" class="hour-icon">
+    <p class="hour-time">5 PM</p>
+    <span class="hour-temp">20°</span>
+  </div>
+
+   <div class="hour-card">
+    <img src="assets/icon-overcast.webp" alt="Cloudy" class="hour-icon">
+    <p class="hour-time">6 PM</p>
+    <span class="hour-temp">19°</span>
+  </div>
+
+      <div class="hour-card">
+    <img src="assets/icon-snow.webp" alt="snow" class="hour-icon">
+    <p class="hour-time">7 PM</p>
+    <span class="hour-temp">18°</span>
+  </div>
+
+       <div class="hour-card">
+    <img src="assets/icon-fog.webp" alt="Rain" class="hour-icon">
+    <p class="hour-time">8 PM</p>
+    <span class="hour-temp">18°</span>
+  </div>
+
+      <div class="hour-card">
+    <img src="assets/icon-snow.webp" alt="Fog" class="hour-icon">
+    <p class="hour-time">9 PM</p>
+    <span class="hour-temp">17°</span>
+  </div>
+
+      <div class="hour-card">
+    <img src="assets/icon-overcast.webp" alt="Fog" class="hour-icon">
+    <p class="hour-time">10 PM</p>
+    <span class="hour-temp">17°</span>
+  </div>
+
+    </div>
+  </div>
+
+</div>
+
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>
