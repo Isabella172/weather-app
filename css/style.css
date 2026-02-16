@@ -188,18 +188,18 @@ select {
   gap: 15px;
 }
 
-.hour-card {
-  background: var(--neutral-800);
-  padding: 15px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-   display: flex;
-  align-items: center;
-  gap: 5px;
-}
 
-
+  .hour-card {
+    background: var(--neutral-800);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex; 
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
 .hour-icon {
   width: 24px;
   height: 24px;
