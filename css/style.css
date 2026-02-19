@@ -42,10 +42,19 @@ p {
 }
 
 .unit-toggle {
-  background: var(--neutral-800);
-  color: var(--neutral-0);
-  border-radius: 8px;
-  padding: 8px 16px;
+  background-color: #1c1f3a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.unit-toggle:hover {
+  background-color: #242755;
 }
 
 
@@ -58,7 +67,16 @@ p {
   width: 300px;
   border-radius: 8px;
   border: none;
+  background-color: var(--neutral-800);
+  outline: none;
+  font-size: 16px;
 }
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.696);
+}
+
+
 
 :root {
   --neutral-900: hsl(243, 96%, 9%);
@@ -191,19 +209,41 @@ select {
 
   .hour-card {
     background: var(--neutral-800);
-    padding: 15px;
-    border-radius: 10px;
+    padding: 14px 16px;
+    border-radius: 12px;
     display: flex; 
     justify-content: space-between;
     display: flex;
     align-items: center;
     gap: 5px;
+    margin-bottom: 12px;
   }
   
 .hour-icon {
   width: 24px;
   height: 24px;
 }
+
+.hour-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;   
+}
+
+.hour-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.hour-time {
+  margin: 0;
+  font-size: 15px;
+}
+
+.hour-temp {
+  font-weight: 500;
+}
+
 
 
 /* Responsive */

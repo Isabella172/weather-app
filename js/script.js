@@ -28,7 +28,7 @@ document.getElementById("date").textContent =
     if (!city) return;
 
     try {
-      // 1️⃣ Get coordinates
+      //Get coordinates
       const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`;
       const geoResponse = await fetch(geoUrl);
       const geoData = await geoResponse.json();
@@ -40,7 +40,7 @@ document.getElementById("date").textContent =
 
       const { latitude, longitude } = geoData.results[0];
 
-      // 2️⃣ Get weather
+      //Get weather
       const weatherUrl =
      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=relativehumidity_2m,apparent_temperature,precipitation&timezone=auto`;
       const weatherResponse = await fetch(weatherUrl);
